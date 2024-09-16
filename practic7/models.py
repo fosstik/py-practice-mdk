@@ -5,3 +5,4 @@ class Product(models.Model):
     text = models.TextField()
     rating = models.IntegerField()
     price  = models.IntegerField()
+    image = models.ImageField(upload_to="book/%Y/%m/%d",null=True)
