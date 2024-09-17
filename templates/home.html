@@ -2,4 +2,10 @@
 
 {%block content%}
 Главная страница
+<div>
+    <form action="{%url 'search'%}">
+        <input type="text" name="search">
+        <button type="submit">Поиск</button>
+    </form>    
+</div>
 {%endblock%}

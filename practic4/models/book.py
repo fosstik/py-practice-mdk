@@ -5,3 +5,4 @@ class Book(models.Model):
     publication_date = models.DateField()
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
     publishers = models.ManyToManyField('Publisher')
+    image = models.ImageField(upload_to="book/%Y/%m/%d",null=True)

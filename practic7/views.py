@@ -12,3 +12,9 @@ def products(req):
     return render(req, 'pr7_products.html', context ={
         'products': products
     })
+
+def get_product_detail(req, pk):
+    productDetail = Product.objects.get(pk = pk)
+    return render(req, 'pr7_productPage.html', context = {
+        'productDetail':productDetail
+    })
