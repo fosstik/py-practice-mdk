@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.db.models import Q
 from .models import Product
+from django.http import HttpRequest
 
 def main(req):
     return render(req, 'pr7_index.html')
@@ -18,3 +20,4 @@ def get_product_detail(req, pk):
     return render(req, 'pr7_productPage.html', context = {
         'productDetail':productDetail
     })
+    

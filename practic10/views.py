@@ -1,14 +1,18 @@
-from django.shortcuts import redirect, render, reverse
+from django.shortcuts import redirect, render
 from django.db.models import Q
-from practic4.models import Book
+from practic7.models import Product
+from django.http import HttpRequest
 
-def search_book(req):
+def search_product(req: HttpRequest):
     if req.method == "GET":
-        search = req.GET['search']
-        books = Book.objects.filter(
-            Q(title_icontains = search) | Q(author__name__icontains = search)) 
-        return render(req, template_name="layout.html", context={
-            'books': books,
-            'title': 'Книги'
-    } )
-    return redirect(reverse('home'))
+        if (req.GET.get('search') is not None):
+            search = req.GET.get('search')
+            products = Product.objects.filter(
+                Q(title__icontains = search)) 
+            
+            return render(req, template_name="pr10_search.html", context={
+                'products': products,
+            })
+        else:
+            return redirect('main')    
+    return redirect('main')

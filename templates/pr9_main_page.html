@@ -8,7 +8,13 @@
 <body>
     {% for item in books %}
     <a href="{%url 'book_detail' item.id %}">{{item.title}}</a>
-    
     {% endfor %}
+    Главная страница
+<div>
+    <form action="{%url 'search'%}">
+        <input type="text" name="search">
+        <button type="submit">Поиск</button>
+    </form>    
+</div>
 </body>
 </html>
