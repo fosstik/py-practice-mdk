@@ -29,6 +29,8 @@ urlpatterns = [
     path('practic9/', include('practic9.urls')),
     path('practic10/', include('practic10.urls')),
     path('practic11/', include('practic11.urls')),
+    path('practic12/', include('practic12.urls')),
+    path('practic13/', include('practic13.urls')),
 ]
 
 if settings.DEBUG:
