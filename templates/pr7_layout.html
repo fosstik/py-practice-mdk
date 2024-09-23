@@ -60,13 +60,12 @@
             <a href="/practic7/products/" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Товары</a>
           </li>
           <p>
-          {%if request.user != "AnonymousUser" %}
-          {{request.user.username}}
+
+          {{request.user}}
             <form action="{%url 'logout'%}" method="POST">
             {%csrf_token%}
             <button>Выйти</button>
           </form>
-          {%endif%}
           </p>
         </ul>
       </div>
@@ -74,5 +73,6 @@
   </nav>
   {% block content%}
   {%endblock%}
+  
 </body>
 </html>
