@@ -18,14 +18,11 @@
       </div>
       <div class="flex item-center justify-between mt-3">
         <h1 class="text-gray-700 font-bold text-xl">{{item.price}}₽</h1>
-        <button class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Add to Card</button>
+        <a href="{% url 'cart_add' item.id %}" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Добавить в корзину</a>
       </div>
     </div>
   </div>
 </div>
-<a href="{%url 'product_detail' item.id %}">
-
-</a>
 {% endfor %}
 </div>
 {%endblock%}

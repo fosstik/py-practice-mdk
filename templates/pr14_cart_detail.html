@@ -1,0 +1,17 @@
+{%extends "pr7_layout.html"%}
+
+{%block content%}
+
+    <div>
+    {% for item in cart %}
+        <div> 
+            Количество:{{item.quantity}}
+            Цена:{{item.price}}
+            <img src="{{item.product.image.url}}" width="100">
+            <a href="{%url "cart_remove" item.product.id%}">Удалить </a>
+{{item.product}}
+        </div>
+    {%endfor%}
+    </div>
+
+    {%endblock%}
