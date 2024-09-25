@@ -3,15 +3,20 @@
 {%block content%}
 
     <div>
+        Сумма корзины:<b>{{cart.get_total_price}}</b>
     {% for item in cart %}
         <div> 
             Количество:{{item.quantity}}
+
             Цена:{{item.price}}
+            Название:<b>{{item.product.title}}</b>
             <img src="{{item.product.image.url}}" width="100">
-            <a href="{%url "cart_remove" item.product.id%}">Удалить </a>
-{{item.product}}
+            <a href="{% url 'cart_add' item.product.id %}">Добавить+</a>
+            <a href="{%url "cart_remove" item.product.id%}">Удалить- </a>
+            <b>{{item.product.title}}</b>
         </div>
     {%endfor%}
+        <a href="{%url 'cart_remove_all'%}">Очистить корзину</a>
     </div>
 
     {%endblock%}

@@ -45,7 +45,7 @@ class CartSession(SessionBase):
                     'title': product.title,
                     'rating': product.rating,
                     'price': product.price,
-                    'image':product.image,
+                    'image':product.image.url,
                 }
             }
 
@@ -56,8 +56,8 @@ class CartSession(SessionBase):
             self.cart[product_id]['quantity'] += quantity
         self.save()
 
-    def remove(self, product):
-        product_id = str(product_id)
+    def remove(self, product:Product):
+        product_id = str(product.id)
 
         if product_id in self.cart:
             if self.cart[product_id]['quantity'] > 1:
