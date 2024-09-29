@@ -25,4 +25,4 @@ class OrderItem(models.Model):
     quantity= models.IntegerField()
 
     def __str__(self):
-        return f"{self.quantity} of {self.book} for {self.order}"
+        return f"{self.quantity} of {self.product} for {self.order}"

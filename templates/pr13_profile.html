@@ -1,18 +1,69 @@
-{% extends "pr7_layout.html" %}
-
-{% block content%}
+{% extends "pr7_layout.html" %} {% block content%}
 <form method="post">
-    {%csrf_token%}
+  {%csrf_token%}
 
-    <ul>
-        <li>Имя:<input  style="border:1px solid black" type="text" value="{{user.user.username}}"></li>
-        <li>Гендер:<input name="gender" style="border:1px solid black" type="text" value="{{user.gender}}"></li>
-        <li>Cтрана:<input name="country" style="border:1px solid black" type="text" value="{{user.country}}"></li>
-        <li>Город<input name="city" style="border:1px solid black" type="text" value="{{user.city}}"></li>
-        <li>Улица:<input name="street" style="border:1px solid black" type="text" value="{{user.street}}"></li>
-        <li>Дом:<input name="house" style="border:1px solid black" type="text" value="{{user.house}}"></li>
-        <li>Номер дома:<input name="apartment_number" style="border:1px solid black" type="text" value="{{user.apartament_number}}"></li>
-    </ul>
-    <button type="submit">Редактировать</button>
+  <ul>
+    <li>
+      Имя:<input
+        style="border: 1px solid black"
+        type="text"
+        value="{{user.user.username}}"
+      />
+    </li>
+    <li>
+      Гендер:<input
+        name="gender"
+        style="border: 1px solid black"
+        type="text"
+        value="{{user.gender}}"
+      />
+    </li>
+    <li>
+      Cтрана:<input
+        name="country"
+        style="border: 1px solid black"
+        type="text"
+        value="{{user.country}}"
+      />
+    </li>
+    <li>
+      Город<input
+        name="city"
+        style="border: 1px solid black"
+        type="text"
+        value="{{user.city}}"
+      />
+    </li>
+    <li>
+      Улица:<input
+        name="street"
+        style="border: 1px solid black"
+        type="text"
+        value="{{user.street}}"
+      />
+    </li>
+    <li>
+      Дом:<input
+        name="house"
+        style="border: 1px solid black"
+        type="text"
+        value="{{user.house}}"
+      />
+    </li>
+    <li>
+      Номер дома:<input
+        name="apartment_number"
+        style="border: 1px solid black"
+        type="text"
+        value="{{user.apartament_number}}"
+      />
+    </li>
+  </ul>
+  <button type="submit">Редактировать</button>
 </form>
+<div style="display: flex; flex-direction: column">
+  <div>
+    {% for i in orders %} {{ i.order_date }} {{ i.customer_email }} {%endfor%}
+  </div>
+</div>
 {%endblock%}
