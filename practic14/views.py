@@ -23,13 +23,6 @@ def cart_remove_all(req:HttpRequest):
     cart.clear()
     return redirect('cart_detail')
 
-# def cart_detail(req: HttpRequest):
-#     cart = CartSession(req.session)
-
-#     return render(req, 'pr14_cart_detail.html', context={
-#         'cart':cart
-#     })
-
 @login_required(login_url='login')
 def cart_detail(req: HttpRequest):
     cart = CartSession(req.session)
