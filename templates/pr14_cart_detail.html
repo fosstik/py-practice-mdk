@@ -18,5 +18,12 @@
     {%endfor%}
         <a href="{%url 'cart_remove_all'%}">Очистить корзину</a>
     </div>
-
+    <div>
+        <h2>Оформление заказа</h2>
+        <form action="{% url 'cart_detail' %}" method='post'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Заказать</button>
+        </form>
+    </div>
     {%endblock%}
